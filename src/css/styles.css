@@ -7,12 +7,124 @@
 /* Common styles */
 @import url('./reset.css');
 @import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 24px;
+  column-gap: 24px;
+  list-style: none;
+  padding: 24px 156px;
+  margin: 0;
+}
+
+.gallery-item img {
+  display: block;
+  width: 360px;
+  height: 200px;
+  cursor: pointer;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+form button {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 95px;
+  height: 40px;
+  background: #4e75ff;
+  font-weight: 500;
+  color: #fff;
+  border: none;
+  margin-top: 8px;
+}
+
+form button:hover {
+  background: #6c8cff;
+}
+
+form input {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 360px;
+  height: 24px;
+  font-size: 16px;
+  padding: 8px 16px;
+}
+
+form input:hover {
+  border: 1px solid #000;
+}
+
+form textarea {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 360px;
+  height: 63px;
+  font-size: 16px;
+  padding: 8px 16px;
+}
+
+::placeholder {
+  font-family: 'Montserrat', sans-serif;
+  color: #2e2f42;
+  font-size: 16px;
+}
+
+.sl-wrapper {
+  background: rgba(46, 47, 66, 0.8);
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  text-decoration: none;
+}
+#search-form {
+  margin-top: 40px;
+}
+
+.loader {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: block;
+  margin: 15px auto;
+  position: relative;
+  color: #fff;
+  box-sizing: border-box;
+  animation: animloader 2s linear infinite;
+}
+
+@keyframes animloader {
+  0% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 -2px;
+  }
+  25% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 2px;
+  }
+  50% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 -2px, -14px 0 0 2px, -38px 0 0 -2px;
+  }
+  75% {
+    box-shadow: 14px 0 0 2px, 38px 0 0 -2px, -14px 0 0 -2px, -38px 0 0 -2px;
+  }
+  100% {
+    box-shadow: 14px 0 0 -2px, 38px 0 0 2px, -14px 0 0 -2px, -38px 0 0 -2px;
+  }
+}
