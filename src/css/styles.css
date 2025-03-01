@@ -11,18 +11,33 @@
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  row-gap: 24px;
-  column-gap: 24px;
-  list-style: none;
-  padding: 24px 156px;
-  margin: 0;
+  gap: 24px 24px;
 }
 
-.gallery-item img {
-  display: block;
+.gallery-item {
+  border: 1px solid #808080;
+  border-radius: 15px;
+}
+
+.gallery-image {
   width: 360px;
   height: 200px;
-  cursor: pointer;
+  border-radius: 15px 15px 0 0;
+}
+.inform {
+  display: flex;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  justify-content: space-around;
+}
+
+.inform-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #2e2f42;
 }
 
 body {
@@ -79,23 +94,13 @@ form textarea {
   padding: 8px 16px;
 }
 
-::placeholder {
-  font-family: 'Montserrat', sans-serif;
-  color: #2e2f42;
-  font-size: 16px;
-}
-
-.sl-wrapper {
-  background: rgba(46, 47, 66, 0.8);
-}
-
-.info {
+.inform {
   display: flex;
   flex-direction: row;
   gap: 30px;
   text-decoration: none;
 }
-#search-form {
+.group-form {
   margin-top: 40px;
 }
 

@@ -1,11 +1,5 @@
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
-
-const gallery = document.querySelector('.gallery');
-let lightbox = new SimpleLightbox('.gallery a');
-
-export function renderImages(images) {
-  const markup = images
+export function creatGallery(arr) {
+  return arr
     .map(
       ({
         webformatURL,
@@ -15,35 +9,31 @@ export function renderImages(images) {
         views,
         comments,
         downloads,
-      }) => `
-      <a href="${largeImageURL}" class="gallery-item">
-        <img src="${webformatURL}" alt="${tags}" />
-        <ul class="info">
+      }) =>
+        `<li class="gallery-item">
+            <a class="gallery-link" href="${largeImageURL}">
+                <img class="gallery-image" src="${webformatURL}" alt="${tags}"/>
+            </a>
+                <ul class="inform">
                     <li class="inform-link">
-                        <span class="inform-title">Likes:</span>
+                        <h2 class="inform-title">Likes:</h2>
                         <p class="inform-dan">${likes}</p>
                     </li>
                     <li class="inform-link">
-                        <span class="inform-title">Views:</span>
+                        <h2 class="inform-title">Views:</h2>
                         <p class="inform-dan">${views}</p>
                     </li>
                     <li class="inform-link">
-                        <span class="inform-title">Comments:</span>
+                        <h2 class="inform-title">Comments:</h2>
                         <p class="inform-dan">${comments}</p>
                     </li>
                     <li class="inform-link">
-                        <span class="inform-title">Downloads:</span>
+                        <h2 class="inform-title">Downloads:</h2>
                         <p class="inform-dan">${downloads}</p>
                     </li>
                 </ul>
-      </a>`
+            
+    </li>`
     )
     .join('');
-
-  gallery.innerHTML = markup;
-  lightbox.refresh();
-}
-
-export function clearGallery() {
-  gallery.innerHTML = '';
 }
