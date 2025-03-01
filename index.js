@@ -1,23 +1,25 @@
-import{a as d,S as p,i as a}from"./assets/vendor-Dt0HiiXr.js";(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))i(e);new MutationObserver(e=>{for(const r of e)if(r.type==="childList")for(const o of r.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&i(o)}).observe(document,{childList:!0,subtree:!0});function s(e){const r={};return e.integrity&&(r.integrity=e.integrity),e.referrerPolicy&&(r.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?r.credentials="include":e.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function i(e){if(e.ep)return;e.ep=!0;const r=s(e);fetch(e.href,r)}})();const y="49114219-148fd2eac33b6a5671d248709",g="https://pixabay.com/api/";function h(n){const t=`${g}?key=${y}&q=${encodeURIComponent(n)}&image_type=photo&orientation=horizontal&safesearch=true`;return d.get(t).then(s=>s.data.hits.length===0?Promise.reject("No images found."):s.data.hits)}const f=document.querySelector(".gallery");let L=new p(".gallery a");function $(n){const t=n.map(({webformatURL:s,largeImageURL:i,tags:e,likes:r,views:o,comments:u,downloads:m})=>`
-      <a href="${i}" class="gallery-item">
-        <img src="${s}" alt="${e}" />
-        <ul class="info">
+import{S as m,i as a}from"./assets/vendor-5ObWk2rO.js";(function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))n(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const i of t.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&n(i)}).observe(document,{childList:!0,subtree:!0});function r(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function n(e){if(e.ep)return;e.ep=!0;const t=r(e);fetch(e.href,t)}})();const u="https://pixabay.com/api/",d="49114219-148fd2eac33b6a5671d248709";function h(s){const o=new URLSearchParams({key:d,q:s,image_type:"photo",orientation:"horizontal",safesearch:!0});return fetch(`${u}?${o}`).then(r=>{if(!r.ok)throw new Error(r.statusText);return r.json()})}function p(s){return s.map(({webformatURL:o,largeImageURL:r,tags:n,likes:e,views:t,comments:i,downloads:f})=>`<li class="gallery-item">
+            <a class="gallery-link" href="${r}">
+                <img class="gallery-image" src="${o}" alt="${n}"/>
+            </a>
+                <ul class="inform">
                     <li class="inform-link">
-                        <span class="inform-title">Likes:</span>
-                        <p class="inform-dan">${r}</p>
+                        <h2 class="inform-title">Likes:</h2>
+                        <p class="inform-dan">${e}</p>
                     </li>
                     <li class="inform-link">
-                        <span class="inform-title">Views:</span>
-                        <p class="inform-dan">${o}</p>
+                        <h2 class="inform-title">Views:</h2>
+                        <p class="inform-dan">${t}</p>
                     </li>
                     <li class="inform-link">
-                        <span class="inform-title">Comments:</span>
-                        <p class="inform-dan">${u}</p>
+                        <h2 class="inform-title">Comments:</h2>
+                        <p class="inform-dan">${i}</p>
                     </li>
                     <li class="inform-link">
-                        <span class="inform-title">Downloads:</span>
-                        <p class="inform-dan">${m}</p>
+                        <h2 class="inform-title">Downloads:</h2>
+                        <p class="inform-dan">${f}</p>
                     </li>
                 </ul>
-      </a>`).join("");f.innerHTML=t,L.refresh()}function b(){f.innerHTML=""}const l=document.querySelector("#search-form"),c=document.querySelector(".loader");l.addEventListener("submit",n=>{n.preventDefault();const t=n.target.elements.searchQuery.value.trim();if(!t){a.error({title:"Error",message:"Please enter a search query!"});return}b(),c.style.display="block",h(t).then(s=>{$(s),a.success({title:"Success",message:"Images loaded!"})}).catch(s=>{a.error({title:"Error",message:s})}).finally(()=>{c.style.display="none",l.reset()})});
+            
+    </li>`).join("")}const y=document.querySelector(".group-form"),c=document.querySelector(".gallery"),l=document.querySelector(".loader");l.style.display="none";const g=new m(".gallery a",{captions:!0,captionsData:"alt",captionDelay:250});y.addEventListener("submit",F);function F(s){s.preventDefault();let o=s.target.elements.query.value.trim();if(c.innerHTML=" ",!o){a.show({backgroundColor:"#EF4040",message:"Enter the data for the search!",messageColor:"#FFFFFF",position:"topRight"});return}l.style.display="inline-block",h(o).then(r=>{r.hits.length===0&&a.show({title:"",backgroundColor:"#EF4040",messageColor:"#FFFFFF",message:"Sorry, there are no images matching your search query. Please try again!",position:"topCenter"}),c.insertAdjacentHTML("beforeend",p(r.hits)),g.refresh(),l.style.display="none"}).catch(r=>{console.log(r.message)}).finally(()=>s.target.reset())}
 //# sourceMappingURL=index.js.map
